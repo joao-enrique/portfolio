@@ -1,0 +1,41 @@
+/* variables configuration */
+
+$--bg-primary: #F5F5F5;
+$--bg-secondary: #EAEAEA;
+$--text-primary: #222222;
+$--text-secondary: #555555;
+$--border: #CCCCCC;
+$--white-color: #ffffff;
+$--cursor-text: #ede3b4;
+
+$--bg-primary-dark: #121212;
+$--bg-secondary-dark: #1E1E1E;
+$--text-primary-dark: #E0E0E0;
+$--text-secondary-dark: #B0B0B0;
+$--highlight: #FF6B6B;
+$--border: #292929;
+
+body.dark{
+    background-color: $--bg-primary-dark;
+}
+
+body.dark .swiper{
+    background-color: $--bg-secondary-dark;
+}
+
+body.dark h1, h2, h3{
+    color: $--text-primary-dark;
+}
+
+body.dark h4, h5, h6{
+    color: $--text-secondary-dark;
+}
+
+body.dark p{
+    color: $--text-secondary-dark;
+}
+
+body.dark .text-services{
+    background-color: $--bg-primary-dark;
+}
+
