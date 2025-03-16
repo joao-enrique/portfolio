@@ -1,3 +1,9 @@
+@mixin font-text($font, $weight, $color){
+    font-family: $font, sans-serif;
+    font-weight: $weight;
+    color: $color;
+}
+
 *{
     margin: 0;
     border: 0;
@@ -17,22 +23,16 @@ body{
 }
 
 h1, h2, h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    color: $--text-primary;
+    @include font-text("Poppins", 700, $--text-primary);
 }
 
 h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: $--text-secondary;
+    @include font-text("Poppins", 600, $--text-secondary);
 }
 
 p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
+    @include font-text("Inter", 400, $--text-secondary);
     line-height: 1.6;
-    color: $--text-secondary;
 }
 
 ul{

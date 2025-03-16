@@ -1,10 +1,19 @@
-@media (max-width: 768px){
-    /* Swiper configuration breakpoints */
+/* Mixins para breakpoints */
+@mixin breakpoint($size) {
+    @if $size == tablet {
+        @media (max-width: 768px) { @content; }
+    } @else if $size == mobile {
+        @media (max-width: 425px) { @content; }
+    }
+}
+
+/* Tablet (max-width: 768px) */
+@include breakpoint(tablet) {
+    /* Swiper */
     .swiper-button-next,
-    .swiper-button-prev{
+    .swiper-button-prev {
         display: none;
     }
-
 
     .swiper-slide {
         display: flex;
@@ -19,202 +28,183 @@
         align-items: start;
     }
 
-    /*home breakpoints (tablet)*/
-
-    .home-section .text-home h1 {
-        font-size: 2rem;
-        margin-bottom: 40px;
+    /* Home */
+    .home-section .text-home {
+        h1 { font-size: 2rem; margin-bottom: 40px; }
+        h2 { font-size: 2.4rem; margin-bottom: 20px; }
+        h3 { font-size: 1.5rem; }
     }
 
-    .home-section .text-home h2 {
-        font-size: 2.4rem;
-        margin-bottom: 20px;
-    }
-
-    .home-section .text-home h3 {
-        font-size: 1.5rem;
-    }
-
-    /* about breakpoints (tablet) */
-    .section-about{
+    /* About */
+    .section-about {
         flex-direction: column;
+
+        .about-image {
+            margin: 20px 0;
+            img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 330px;
+                height: 330px;
+            }
+        }
+
+        .text-about {
+            margin-right: 0;
+
+            p {
+                margin-bottom: 30px;
+            }
+        }
     }
 
-    .section-about .about-image{
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-right: 0;
-    }
-
-    .section-about .about-image img{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 330px;
-        height: 330px;
-
-    }
-
-    .section-about .text-about{
-        margin-right: 0;
-    }
-
-    .section-about .text-about p{
-        margin-bottom: 30px;
-    }
-
-    /* services breakpoints (tablet) */
-    .section-services{
+    /* Services */
+    .section-services {
         flex-direction: column;
         height: 120vh;
+
+        .text-services {
+            margin: 10px;
+            width: 100%;
+
+            p {
+                margin-bottom: 10px;
+            }
+        }
     }
 
-    .section-services .text-services{
-        margin: 10px;
-        width: 100%;
-    }
-
-    .section-services .text-services p{
+    .tech-grid {
         margin-bottom: 10px;
     }
 
-    .tech-grid{
-        margin-bottom: 10px;
-    }
-
-    /* projects breakpoints (tablet) */
-    .project-section{
+    /* Projects */
+    .project-section {
         flex-direction: column;
         justify-content: center;
+
+        .description-project {
+            @include flex-center;
+            flex-direction: column;
+        }
+
+        img {
+            width: 550px;
+            height: 300px;
+        }
+
+        .project-title {
+            margin-bottom: 20px;
+        }
+
+        p {
+            width: 86%;
+        }
+
+        .options-project {
+            width: 85%;
+            margin-top: 10px;
+        }
     }
 
-    .description-project{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .mySwiper3{
+    .mySwiper3 {
         width: 550px;
         height: 300px;
         margin-bottom: 10px;
     }
 
-    .mySwiper2{
+    .mySwiper2 {
         width: 86vw;
-    }
-
-    .project-section img{
-        width: 550px;
-        height: 300px;
-    }
-
-    .project-section .project-title{
-        margin-bottom: 20px;
-    }
-
-    .project-section p{
-        width: 86%;
-    }
-    
-    .options-project{
-        width: 85%;
-        margin-top: 10px;
     }
 }
 
-@media (max-width: 425px){
-    /* home breakpoints (mobile) */
-    .home-section .logo img{
-        width: 30px;
+/* Mobile (max-width: 425px) */
+@include breakpoint(mobile) {
+    /* Home */
+    .home-section {
+        .logo img { width: 30px; }
+
+        .text-home {
+            h1 { font-size: 0.98rem; margin-bottom: 20px; }
+            h2 { font-size: 1.4rem; margin-bottom: 10px; }
+            h3 { font-size: 1rem; }
+        }
+
+        .socials-icons ul li a i {
+            font-size: 20px;
+        }
     }
 
-    .swiper .theme-icon i{
+    .swiper .theme-icon i {
         font-size: 16px;
     }
 
-    .home-section .text-home h1{
-        font-size: 0.98rem;
-        margin-bottom: 20px;
+    /* About */
+    .section-about {
+        .about-image img {
+            width: 190px;
+            height: 190px;
+        }
+
+        .text-about p {
+            font-size: 0.8rem;
+            width: 100%;
+        }
     }
 
-    .home-section .text-home h2{
-        font-size: 1.4rem;
-        margin-bottom: 10px;
-    }
-
-    .home-section .text-home h3{
-        font-size: 1rem;
-    }
-
-    .home-section .socials-icons ul li a i{
-        font-size: 20px;
-    }
-
-    /* about breakpoints (mobile) */
-    .section-about .about-image img{
-        width: 190px;
-        height: 190px;
-    }
-
-    .section-about .text-about p{
-        font-size: 0.8rem;
-        width: 100%;
-    }
-
-    /* services breakpoints (mobile) */
-    .section-services{
+    /* Services */
+    .section-services {
         height: 130vh;
+
+        .text-services p {
+            font-size: 0.7rem;
+        }
     }
 
-    .section-services .text-services p{
-        font-size: 0.7rem;
-    }
-
-    .tecnologies-section h1{
+    .tecnologies-section h1 {
         font-size: 1.2rem;
     }
-    .tech-grid img{
+
+    .tech-grid img {
         width: 30px;
     }
 
-    /* project breakpoints (mobile) */
-    .section-project{
+    /* Projects */
+    .section-project {
         font-size: 1.4rem;
     }
 
-    .project-section{
+    .project-section {
         width: 80vw;
+
+        .project-title {
+            font-size: 1rem;
+        }
+
+        p {
+            font-size: 0.65rem;
+            width: 80%;
+            text-align: center;
+        }
+
+        img {
+            width: 250px;
+            height: 200px;
+        }
     }
 
-    .mySwiper3{
+    .mySwiper3 {
         width: 250px;
         height: 200px;
         margin-bottom: 10px;
     }
 
-    .mySwiper2{
+    .mySwiper2 {
         width: 98vw;
     }
 
-    .project-section .project-title{
-        font-size: 1rem;
-    }
-
-    .project-section p{
-        font-size: 0.65rem;
-        width: 80%;
-        text-align: center;
-    }
-
-    .project-section img{
-        width: 250px;
-        height: 200px;
-    }
-
-    /* bonus: working area breakpoint (mobile) */
-    .working-section{
+    /* Working Section */
+    .working-section {
         width: 82vw;
     }
 }
